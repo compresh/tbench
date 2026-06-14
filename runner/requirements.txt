@@ -1,0 +1,10 @@
+# T-bench public harness dependencies.
+#
+# The runner itself and the `raw`/`oracle`/`byo` arms use only the Python
+# standard library (answerer calls go through urllib) — nothing to install for
+# a plumbing test:
+#     python run_tbench.py --data ../data/v1.1 --arm raw --provider mock --limit 5
+#
+# The `naive_rag` baseline needs a sentence-transformer (this pulls in torch):
+sentence-transformers>=2.2.0
+numpy>=1.24

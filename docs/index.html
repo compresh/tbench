@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T-bench — an episodic-memory diagnostic for LLM systems · tulv.ing</title>
+<meta name="description" content="T-bench is an X-ray for episodic memory in LLM context systems. Pre-registered, deterministic, reproducible. Fork it and run it on your own system.">
+<style>
+  :root{
+    --ink:#1b1d21; --muted:#5d6470; --faint:#8b93a0; --line:#e6e3da;
+    --accent:#C8553D; --bg:#fcfbf8; --code:#f3f1ea;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+       line-height:1.65;font-size:17px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:760px;margin:0 auto;padding:48px 22px 80px}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .mono{font-family:var(--mono)}
+  header .mark{font-family:var(--mono);font-size:15px;color:var(--muted);letter-spacing:.02em}
+  header .mark b{color:var(--accent)}
+  h1{font-size:30px;line-height:1.2;margin:.4em 0 .2em;letter-spacing:-.01em}
+  .tagline{font-size:19px;color:var(--muted);margin:0 0 6px}
+  .repo{font-family:var(--mono);font-size:13px;color:var(--faint);margin-top:10px}
+  h2{font-size:21px;margin:2.2em 0 .5em;letter-spacing:-.01em}
+  h3{font-size:16px;font-family:var(--mono);color:var(--muted);margin:1.6em 0 .4em;font-weight:600}
+  p{margin:.7em 0}
+  .lead{font-size:18px}
+  .coi{border-left:3px solid var(--accent);background:#fff;padding:14px 18px;margin:22px 0;
+       font-size:15px;color:var(--muted)}
+  .coi b{color:var(--ink)}
+  table{border-collapse:collapse;width:100%;margin:16px 0;font-size:13.5px}
+  th,td{text-align:right;padding:7px 9px;border-bottom:1px solid var(--line)}
+  th:first-child,td:first-child{text-align:left}
+  thead th{color:var(--muted);font-weight:600;border-bottom:1.5px solid #d8d4c8;font-size:12px;
+           text-transform:uppercase;letter-spacing:.03em}
+  td.num,th.num{font-family:var(--mono)}
+  tr.hl td{background:#faf0ec}
+  tr.hl td:first-child{color:var(--accent)}
+  .caption{font-size:13px;color:var(--faint);margin:4px 0 0}
+  pre{background:var(--code);border:1px solid var(--line);border-radius:8px;padding:14px 16px;
+      overflow-x:auto;font-family:var(--mono);font-size:13.5px;line-height:1.55}
+  code{font-family:var(--mono);font-size:.92em;background:var(--code);padding:1px 5px;border-radius:4px}
+  pre code{background:none;padding:0}
+  .legs{margin:14px 0}
+  .leg{border-top:1px solid var(--line);padding:14px 0}
+  .leg b{color:var(--accent);font-family:var(--mono);font-size:14px}
+  .footnote{font-size:13px;color:var(--faint);border-top:1px solid var(--line);margin-top:40px;padding-top:18px}
+  figure{margin:18px 0}
+  .chart-title{font-size:14px;font-family:var(--mono);color:var(--muted);margin-bottom:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="mark"><b>●</b> tulv.ing — your model's memory, imaged</div>
+  <h1>T-bench: an X-ray for episodic memory</h1>
+  <p class="tagline">A diagnostic instrument for LLM context systems — not a leaderboard.</p>
+  <div class="repo"><a href="https://github.com/compresh/tbench">github.com/compresh/tbench</a> · dataset + harness + this report, one repo</div>
+</header>
+
+<p class="lead">T-bench is meant to be pointed at <em>your own</em> context/memory
+system to show where it forgets, confuses a source, or loses the thread — not to
+rank who wins. We built it because the benchmarks we relied on could not see
+these failures, and we are still early in understanding them ourselves.
+Everything here is reproducible. Fork it and run it on your system.</p>
+
+<div class="coi">
+  <b>Conflict of interest, stated up front.</b> T-bench was built by Compresh.
+  Our own systems appear below under exactly the same conditions as every other
+  arm. We also report a pre-registered hypothesis about our newest system that
+  <b>failed</b> (H1, below). Hiding that would defeat the purpose.
+</div>
+
+<h2>1 · What it measures</h2>
+<p>Most long-context benchmarks score <em>whether</em> a fact is retrieved.
+T-bench scores <em>how</em> an answer is reconstructed — the episodic properties:
+where a fact came from, when it was said, whether it was later corrected, and
+whether the system honestly knows what it does and does not know.</p>
+<p>We use Endel Tulving's episodic-memory framework as inspiration, mapped to
+functional, measurable probes — <em>not</em> as a claim that any system
+"satisfies Tulving's criteria." T-bench does not measure autonoesis. That
+boundary is part of the design, not a footnote.</p>
+
+<table>
+<thead><tr><th>Family</th><th style="text-align:left">Functional probe</th></tr></thead>
+<tbody>
+<tr><td>F1 — source monitoring</td><td style="text-align:left">who said it: user, assistant, or third party; which turn</td></tr>
+<tr><td>F2 — correction fidelity</td><td style="text-align:left">the current value and recall of the superseded one</td></tr>
+<tr><td>F3 — relational time</td><td style="text-align:left">ordering, dangling-reference resolution</td></tr>
+<tr><td>F4 — what-where-when</td><td style="text-align:left">episode individuation, co-occurrence, counting</td></tr>
+<tr><td>F5 — remember / know</td><td style="text-align:left">hearsay flags, abstention, false-memory rejection</td></tr>
+</tbody>
+</table>
+
+<h2>2 · How it is built</h2>
+<p><b>Pre-registered.</b> Every run's hypothesis and pass/fail threshold are
+written before the run, in an append-only registry. Thresholds are never moved
+after seeing results, and negative results are published. <b>Deterministic
+scoring</b> from the generating graph — reproducibility does not depend on a
+judge model (an LLM judge is used for one free-text sub-probe only).
+<b>Synthetic, graph-based generation</b> makes contamination controllable: a
+public split plus a private held-out split with a hidden seed, regenerable on
+demand. v1.1 is 976 probes over a ~1.15M-token haystack, three size regimes
+(S ≈ 45 turns / M ≈ 200 / L ≈ 1,450), answered by three models.</p>
+<p><b>Arms.</b> <code>raw</code> (full context, control) · <code>oracle</code>
+(only the evidence turns — an upper bound separating model error from
+architecture error) · a <code>blind-summarization</code> baseline (LexRank, no
+query awareness) · <code>retrieval</code> (query-aware, TUL 2.0) ·
+<code>retrieval + role/anchor</code> (TUL 2.1).</p>
+
+<p><b>Context structure (production).</b> In production, Compresh structures the
+prompt as a stable, cacheable <em>prefix</em> (system prompt + append-stable
+compressed history) plus a small, query-aware <em>suffix</em> — the turn's
+retrieved evidence and the recent raw turns. The bulk stays cache-warm while the
+dense, relevant evidence sits at the end. Note: T-bench does not exercise prefix
+caching — each probe is an independent request with no repeated prefix — so this
+is an architectural property of the product, not a number measured on the bench.</p>
+
+<h2>3 · Main grid</h2>
+<p class="caption">Strong answerer (gpt-5-mini), v1.1, 976 probes. "ctx" = mean
+tokens fed per probe; "saving" relative to <code>raw</code>.</p>
+<table>
+<thead><tr><th>Arm</th><th class="num">overall</th><th class="num">F1</th><th class="num">F2</th><th class="num">F3</th><th class="num">F4</th><th class="num">F5</th><th class="num">ctx</th><th class="num">saving</th></tr></thead>
+<tbody>
+<tr><td>raw (control)</td><td class="num">0.955</td><td class="num">1.000</td><td class="num">1.000</td><td class="num">0.828</td><td class="num">0.932</td><td class="num">0.983</td><td class="num">31,947</td><td class="num">—</td></tr>
+<tr><td>oracle (upper bound)</td><td class="num">0.985</td><td class="num">0.951</td><td class="num">1.000</td><td class="num">0.984</td><td class="num">0.990</td><td class="num">1.000</td><td class="num">35</td><td class="num">99.9%</td></tr>
+<tr><td>blind-summarization</td><td class="num">0.991</td><td class="num">0.991</td><td class="num">1.000</td><td class="num">1.000</td><td class="num">0.958</td><td class="num">0.988</td><td class="num">38,061</td><td class="num">−19.1%</td></tr>
+<tr><td>retrieval (TUL 2.0)</td><td class="num">0.988</td><td class="num">0.973</td><td class="num">1.000</td><td class="num">1.000</td><td class="num">0.969</td><td class="num">0.988</td><td class="num">275</td><td class="num">99.1%</td></tr>
+<tr class="hl"><td>retrieval + role/anchor (TUL 2.1)</td><td class="num">0.990</td><td class="num">0.982</td><td class="num">1.000</td><td class="num">1.000</td><td class="num">0.969</td><td class="num">0.988</td><td class="num">297</td><td class="num">99.1%</td></tr>
+</tbody>
+</table>
+<p><code>raw</code> quality falls with context length while retrieval stays flat:</p>
+<table>
+<thead><tr><th>Arm</th><th class="num">S</th><th class="num">M</th><th class="num">L</th></tr></thead>
+<tbody>
+<tr><td>raw</td><td class="num">0.995</td><td class="num">0.973</td><td class="num">0.917</td></tr>
+<tr><td>retrieval (TUL 2.0)</td><td class="num">0.981</td><td class="num">0.990</td><td class="num">0.990</td></tr>
+<tr><td>retrieval + role/anchor</td><td class="num">1.000</td><td class="num">0.990</td><td class="num">0.984</td></tr>
+</tbody>
+</table>
+
+<h2>4 · The finding, in four parts</h2>
+<p>The headline is not "we win." It is that <b>the value of context architecture
+is inversely proportional to the strength of the answering model.</b></p>
+
+<figure>
+  <div class="chart-title">accuracy: raw vs retrieval, by answerer model</div>
+  <svg viewBox="0 0 600 300" width="100%" role="img" aria-label="Accuracy of raw context versus retrieval. Strong model gpt-5-mini: raw 95.5 percent, retrieval 98.8 percent. Small open model Llama-3.1-8B: raw 60.2 percent, retrieval 82.0 percent.">
+    <line x1="60" y1="50" x2="560" y2="50" stroke="#efece4" stroke-width="1"/>
+    <line x1="60" y1="100" x2="560" y2="100" stroke="#efece4" stroke-width="1"/>
+    <line x1="60" y1="150" x2="560" y2="150" stroke="#efece4" stroke-width="1"/>
+    <line x1="60" y1="200" x2="560" y2="200" stroke="#efece4" stroke-width="1"/>
+    <text x="50" y="54" text-anchor="end" font-size="11" fill="#8b93a0" font-family="ui-monospace,monospace">100</text>
+    <text x="50" y="154" text-anchor="end" font-size="11" fill="#8b93a0" font-family="ui-monospace,monospace">50</text>
+    <line x1="60" y1="250" x2="560" y2="250" stroke="#d3cfc3" stroke-width="1.5"/>
+    <rect x="100" y="59" width="78" height="191" rx="3" fill="#9aa0ab"/>
+    <text x="139" y="51" text-anchor="middle" font-size="13" font-weight="700" fill="#1b1d21" font-family="ui-monospace,monospace">95.5</text>
+    <text x="139" y="268" text-anchor="middle" font-size="11" fill="#5d6470">raw</text>
+    <rect x="186" y="52" width="78" height="198" rx="3" fill="#C8553D"/>
+    <text x="225" y="44" text-anchor="middle" font-size="13" font-weight="700" fill="#1b1d21" font-family="ui-monospace,monospace">98.8</text>
+    <text x="225" y="268" text-anchor="middle" font-size="11" fill="#C8553D">retrieval</text>
+    <text x="182" y="289" text-anchor="middle" font-size="12" fill="#1b1d21">gpt-5-mini (strong)</text>
+    <rect x="340" y="130" width="78" height="120" rx="3" fill="#9aa0ab"/>
+    <text x="379" y="122" text-anchor="middle" font-size="13" font-weight="700" fill="#1b1d21" font-family="ui-monospace,monospace">60.2</text>
+    <text x="379" y="268" text-anchor="middle" font-size="11" fill="#5d6470">raw</text>
+    <rect x="426" y="86" width="78" height="164" rx="3" fill="#C8553D"/>
+    <text x="465" y="78" text-anchor="middle" font-size="13" font-weight="700" fill="#1b1d21" font-family="ui-monospace,monospace">82.0</text>
+    <text x="465" y="268" text-anchor="middle" font-size="11" fill="#C8553D">retrieval</text>
+    <text x="422" y="289" text-anchor="middle" font-size="12" fill="#1b1d21">Llama-3.1-8B (small)</text>
+  </svg>
+</figure>
+
+<p>The pattern holds across three answerer models — the weaker the model, the larger retrieval's gain:</p>
+<table>
+<thead><tr><th>Answerer model</th><th class="num">raw</th><th class="num">retrieval (TUL 2.0)</th><th class="num">gain</th></tr></thead>
+<tbody>
+<tr><td>gpt-5-mini · strong</td><td class="num">0.955</td><td class="num">0.988</td><td class="num">+3.3pp</td></tr>
+<tr><td>Qwen-2.5-7B · small</td><td class="num">— *</td><td class="num">0.832</td><td class="num">feasible only w/ retrieval</td></tr>
+<tr class="hl"><td>Llama-3.1-8B · small</td><td class="num">0.602</td><td class="num">0.820</td><td class="num">+21.8pp</td></tr>
+</tbody>
+</table>
+<p class="caption">* Qwen raw: the long-regime history exceeds the model's 32,768-token context — the provider rejects the request; retrieval (~280 tokens) fits, so on the cheapest models retrieval is what makes the task runnable at all. tulngin = tulbase + TUL 2.0 (live; 2.1 on the way).</p>
+
+<div class="legs">
+  <div class="leg"><b>1 — strong model: the value is cost.</b> Retrieval matches
+  or beats <code>raw</code> (0.988 vs 0.955) while feeding ~99% fewer tokens
+  (275 vs ~32k). You buy the same accuracy for ~1% of the context cost, plus
+  stability across length.</div>
+  <div class="leg"><b>2 — weak model: the value is quality, and it is large.</b>
+  gpt-5-mini +3.3pp; Llama-3.1-8B +21.8pp (~7×). The weaker the model, the more
+  it drowns in raw context, and the more retrieval rescues it.</div>
+  <div class="leg"><b>3 — the temporal-anchor curve says the same.</b> Adding
+  encode-time anchoring (TUL 2.1) does nothing on gpt-5-mini's temporal family
+  (F3 = 1.000 either way — the strong model self-compensates) but moves
+  Llama-3.1-8B from 0.609 → 0.807 (+19.8pp). Marginal on a frontier model;
+  decisive on the model a cost-conscious team ships. <span class="mono" style="color:#8b93a0">(Qwen anchor run pending.)</span></div>
+  <div class="leg"><b>4 — sometimes retrieval is the only way it runs.</b> On
+  Qwen-2.5-7B the raw long history does not fit — the provider rejects it
+  (max 32,768 tokens, 72,236 requested). The retrieval arm (~280 tokens) fits
+  and scores 0.832. On cheap, small-context models, feasibility is a third axis
+  next to quality and cost.</div>
+</div>
+
+<h2 id="honesty">5 · Where we were wrong — on the record</h2>
+<p><b>A pre-registered hypothesis failed.</b> H1 predicted role/anchor (TUL 2.1)
+would beat plain retrieval by ≥ +5pp on source attribution (F1). Measured:
+<b>+0.9pp. Rejected.</b> The honest verdict: role/anchor rendering is a
+net-positive, zero-cost change — decisive on weak models, marginal on strong
+ones — but not the across-the-board win we hypothesized. A trap we added,
+"relayed then claimed as one's own," actually regressed under role labels, which
+is why the net is small. That points at the next real problem (epistemic
+propagation), not a marketing line.</p>
+<p><b>The benchmark caught our own bugs.</b> A <code>\btomorrow\b</code> pattern
+in the 2.1 anchor matched inside "day after tomorrow" and mis-anchored 32/32
+hard probes — an incorrect anchor, worse than none. We also caught two silent
+fallbacks (a summarizer and an embedder degrading to a no-op) that had quietly
+invalidated three earlier runs. Each is logged with its correction. An
+instrument that never catches its builder is not an instrument.</p>
+<p><b>Production = what we measured.</b> The live production code, run as its own
+arm, scores 0.921 and reproduces the retrieval thesis; its lower calibration
+score (F5 = 0.800) exposed a real confabulation issue we are now tracking.</p>
+
+<h2>6 · Run it on your own system</h2>
+<pre><code>git clone https://github.com/compresh/tbench
+cd tbench/runner
+pip install -r requirements.txt
+python run_tbench.py --data ../data/v1.1 --arm your_system --out results/you.jsonl</code></pre>
+<p>Scoring is deterministic, so your numbers are reproducible. Share what you
+find in <a href="https://github.com/compresh/tbench/discussions">Discussions</a>,
+or open a pull request adding your <code class="mono">.jsonl</code> to
+<code class="mono">results/</code> with full provenance. This is collaborative,
+not competitive — we want to see where your system's X-ray differs from ours.</p>
+<p>T-bench is a <b>living benchmark</b>. We keep adding tests, models, and harder
+probes over time — and we are glad to publish results, ours and the community's.
+If you run it and find something we missed, send it: that is the instrument working.</p>
+
+<h2>7 · Honest limits</h2>
+<p>T-bench measures functional analogs, not autonoesis. v1.1 still ceilings on
+two families (F2, F3) for the strong model — they are on the v1.2 hardening
+list. The noise band is ≈ ±0.4pp (±1 probe), so sub-1pp differences are not
+interpreted. At launch the grid includes one independent baseline we run
+ourselves (naive embedding RAG); reflection approaches and the long tail of
+memory systems are added over time and by contribution — the harness is public
+and deterministic, so others run their own systems rather than trusting us to
+configure them.</p>
+
+<p class="footnote">Built by <a href="https://compre.sh">Compresh</a>. T-bench
+v1.1 · figures from run <span class="mono">tbench-008fix</span> (gpt-5-mini),
+<span class="mono">tbench-011/011b</span> (weak models), <span class="mono">tbench-010</span>
+(production). Dataset released as measured (CC BY-SA 4.0, with attribution — see ATTRIBUTION.md in the repo). We are early in this area too — if T-bench tells you something we
+got wrong, that is the instrument working.</p>
+
+</div>
+</body>
+</html>
