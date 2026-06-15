@@ -30,12 +30,15 @@ of the answering model.**
 | Arm | Overall | F1 src | F2 corr | F3 time | F4 bind | F5 calib | ctx (tok) | saving |
 |---|---|---|---|---|---|---|---|---|
 | raw (control) | 0.955 | 1.000 | 1.000 | 0.828 | 0.932 | 0.983 | 31,947 | — |
+| naive RAG (baseline) | 0.900 | 0.964 | 1.000 | 0.667 | 0.792 | 0.975 | 270 | 99.2% |
 | oracle (upper bound) | 0.985 | 0.951 | 1.000 | 0.984 | 0.990 | 1.000 | 35 | 99.9% |
 | blind-summarization | 0.991 | 0.991 | 1.000 | 1.000 | 0.958 | 0.988 | 38,061 | −19.1% |
 | retrieval (TUL 2.0) | 0.988 | 0.973 | 1.000 | 1.000 | 0.969 | 0.988 | 275 | 99.1% |
 | retrieval + role/anchor (TUL 2.1) | 0.990 | 0.982 | 1.000 | 1.000 | 0.969 | 0.988 | 297 | 99.1% |
 
 `raw` quality falls with length (S 0.995 → L 0.917); retrieval stays flat (~0.99).
+At retrieval's budget (~270 tok), naive RAG scores only 0.900 — below `raw` — losing
+on the temporal and binding families (F3 0.667, F4 0.792).
 Full analysis, the weak-model curve, and the methodology: **[tulv.ing](https://tulv.ing)**.
 
 ## Run it on your own system

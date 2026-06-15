@@ -108,7 +108,8 @@ demand. v1.1 is 976 probes over a ~1.15M-token haystack, three size regimes
 (S ≈ 45 turns / M ≈ 200 / L ≈ 1,450), answered by three models.</p>
 <p><b>Arms.</b> <code>raw</code> (full context, control) · <code>oracle</code>
 (only the evidence turns — an upper bound separating model error from
-architecture error) · a <code>blind-summarization</code> baseline (LexRank, no
+architecture error) · <code>naive RAG</code> (policy-free embedding top-k, an
+independent baseline) · a <code>blind-summarization</code> baseline (LexRank, no
 query awareness) · <code>retrieval</code> (query-aware, TUL 2.0) ·
 <code>retrieval + role/anchor</code> (TUL 2.1).</p>
 
@@ -127,12 +128,28 @@ tokens fed per probe; "saving" relative to <code>raw</code>.</p>
 <thead><tr><th>Arm</th><th class="num">overall</th><th class="num">F1</th><th class="num">F2</th><th class="num">F3</th><th class="num">F4</th><th class="num">F5</th><th class="num">ctx</th><th class="num">saving</th></tr></thead>
 <tbody>
 <tr><td>raw (control)</td><td class="num">0.955</td><td class="num">1.000</td><td class="num">1.000</td><td class="num">0.828</td><td class="num">0.932</td><td class="num">0.983</td><td class="num">31,947</td><td class="num">—</td></tr>
+<tr><td>naive RAG (baseline)</td><td class="num">0.900</td><td class="num">0.964</td><td class="num">1.000</td><td class="num">0.667</td><td class="num">0.792</td><td class="num">0.975</td><td class="num">270</td><td class="num">99.2%</td></tr>
 <tr><td>oracle (upper bound)</td><td class="num">0.985</td><td class="num">0.951</td><td class="num">1.000</td><td class="num">0.984</td><td class="num">0.990</td><td class="num">1.000</td><td class="num">35</td><td class="num">99.9%</td></tr>
 <tr><td>blind-summarization</td><td class="num">0.991</td><td class="num">0.991</td><td class="num">1.000</td><td class="num">1.000</td><td class="num">0.958</td><td class="num">0.988</td><td class="num">38,061</td><td class="num">−19.1%</td></tr>
 <tr><td>retrieval (TUL 2.0)</td><td class="num">0.988</td><td class="num">0.973</td><td class="num">1.000</td><td class="num">1.000</td><td class="num">0.969</td><td class="num">0.988</td><td class="num">275</td><td class="num">99.1%</td></tr>
 <tr class="hl"><td>retrieval + role/anchor (TUL 2.1)</td><td class="num">0.990</td><td class="num">0.982</td><td class="num">1.000</td><td class="num">1.000</td><td class="num">0.969</td><td class="num">0.988</td><td class="num">297</td><td class="num">99.1%</td></tr>
 </tbody>
 </table>
+<p><b>The two baselines, read together.</b> <code>naive RAG</code> (policy-free
+embedding top-k) and <code>blind summarization</code> are the obvious cheap
+options, and both fall short. At the same tiny budget as retrieval (270 vs 275
+tokens), naive RAG scores 0.900 against 0.988 — and it trails even <code>raw</code>
+(0.955) at ~1% of the tokens, because top-k cosine misses the relational and
+temporal evidence turns (F3 0.667, F4 0.792). Blind summarization keeps quality
+but <em>grows</em> the context ~1.2× (the −19% "saving"): LexRank earns its
+savings by stripping modality cruft — code, terminal dumps, tool output,
+boilerplate — and summarizing long turns, none of which T-bench's clean
+short-turn prose contains, while the episodic role/turn tags it adds are pure
+overhead. On this workload the token win comes only from query-aware retrieval,
+not from naive retrieval or blind compression. <span class="caption">(In
+production a blind rewrite also breaks the cacheable prefix described above —
+another reason its real cost exceeds the token count.)</span></p>
+
 <p><code>raw</code> quality falls with context length while retrieval stays flat:</p>
 <table>
 <thead><tr><th>Arm</th><th class="num">S</th><th class="num">M</th><th class="num">L</th></tr></thead>
@@ -191,7 +208,7 @@ is inversely proportional to the strength of the answering model.</b></p>
   (275 vs ~32k). You buy the same accuracy for ~1% of the context cost, plus
   stability across length.</div>
   <div class="leg"><b>2 — weak model: the value is quality, and it is large.</b>
-  gpt-5-mini +3.3pp; Llama-3.1-8B +21.8pp (~7×). The weaker the model, the more
+  gpt-5-mini +3.3pp; Llama-3.1-8B +21.8pp (~6.6×). The weaker the model, the more
   it drowns in raw context, and the more retrieval rescues it.</div>
   <div class="leg"><b>3 — the temporal-anchor curve says the same.</b> Adding
   encode-time anchoring (TUL 2.1) does nothing on gpt-5-mini's temporal family
