@@ -1,0 +1,1503 @@
+[
+  {
+    "probe_id": "M01-p26-ctrl",
+    "twin_of": "M01-p26",
+    "mode": "no_history",
+    "conv_id": "M01",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Next Monday evening — can I join the neighbourhood dinner? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "conflicts"
+        ],
+        [
+          "clinic",
+          "shift"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M01-p27-ctrl",
+    "twin_of": "M01-p27",
+    "mode": "no_history",
+    "conv_id": "M01",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Thinking of hosting a quiet lunch at home next Saturday afternoon — does that work with my week? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "works"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M01-p29-ctrl",
+    "twin_of": "M01-p29",
+    "mode": "no_history",
+    "conv_id": "M01",
+    "family": "F6",
+    "subtype": "conditional_forecast",
+    "question": "We're shipping this Friday again. Based on how the past ones went, what exactly should I expect by Monday noon?",
+    "gold": {
+      "contains_any": [
+        "three correction",
+        "Priya"
+      ]
+    },
+    "scoring": "contains",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M02-p26-ctrl",
+    "twin_of": "M02-p26",
+    "mode": "no_history",
+    "conv_id": "M02",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Next Tuesday evening — can I host the book club at my flat? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "conflicts"
+        ],
+        [
+          "mother"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M02-p27-ctrl",
+    "twin_of": "M02-p27",
+    "mode": "no_history",
+    "conv_id": "M02",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Thinking of hosting a quiet lunch at home next Saturday afternoon — does that work with my week? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "works"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M02-p29-ctrl",
+    "twin_of": "M02-p29",
+    "mode": "no_history",
+    "conv_id": "M02",
+    "family": "F6",
+    "subtype": "conditional_forecast",
+    "question": "I'm about to skip the Sunday meal prep again. Going by the previous times, where do I end up and what do I order?",
+    "gold": {
+      "contains_any": [
+        "Georgian",
+        "walnut chicken"
+      ]
+    },
+    "scoring": "contains",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M03-p26-ctrl",
+    "twin_of": "M03-p26",
+    "mode": "no_history",
+    "conv_id": "M03",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Next Thursday evening — can I take the evening pottery class? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "conflicts"
+        ],
+        [
+          "football",
+          "practice"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M03-p27-ctrl",
+    "twin_of": "M03-p27",
+    "mode": "no_history",
+    "conv_id": "M03",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Thinking of hosting a quiet lunch at home next Saturday afternoon — does that work with my week? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "works"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M03-p29-ctrl",
+    "twin_of": "M03-p29",
+    "mode": "no_history",
+    "conv_id": "M03",
+    "family": "F6",
+    "subtype": "conditional_forecast",
+    "question": "We're shipping this Friday again. Based on how the past ones went, what exactly should I expect by Monday noon?",
+    "gold": {
+      "contains_any": [
+        "three correction",
+        "Priya"
+      ]
+    },
+    "scoring": "contains",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M04-p26-ctrl",
+    "twin_of": "M04-p26",
+    "mode": "no_history",
+    "conv_id": "M04",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Next Thursday evening — can I take the evening pottery class? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "conflicts"
+        ],
+        [
+          "football",
+          "coach"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M04-p27-ctrl",
+    "twin_of": "M04-p27",
+    "mode": "no_history",
+    "conv_id": "M04",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Thinking of hosting a quiet lunch at home next Saturday afternoon — does that work with my week? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "works"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M04-p29-ctrl",
+    "twin_of": "M04-p29",
+    "mode": "no_history",
+    "conv_id": "M04",
+    "family": "F6",
+    "subtype": "conditional_forecast",
+    "question": "We're shipping this Friday again. Based on how the past ones went, what exactly should I expect by Monday noon?",
+    "gold": {
+      "contains_any": [
+        "three correction",
+        "Priya"
+      ]
+    },
+    "scoring": "contains",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M05-p26-ctrl",
+    "twin_of": "M05-p26",
+    "mode": "no_history",
+    "conv_id": "M05",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Next Thursday evening — can I take the evening pottery class? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "conflicts"
+        ],
+        [
+          "football",
+          "practice"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M05-p27-ctrl",
+    "twin_of": "M05-p27",
+    "mode": "no_history",
+    "conv_id": "M05",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Thinking of hosting a quiet lunch at home next Saturday afternoon — does that work with my week? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "works"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M05-p29-ctrl",
+    "twin_of": "M05-p29",
+    "mode": "no_history",
+    "conv_id": "M05",
+    "family": "F6",
+    "subtype": "conditional_forecast",
+    "question": "We're shipping this Friday again. Based on how the past ones went, what exactly should I expect by Monday noon?",
+    "gold": {
+      "contains_any": [
+        "three correction",
+        "Priya"
+      ]
+    },
+    "scoring": "contains",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M06-p26-ctrl",
+    "twin_of": "M06-p26",
+    "mode": "no_history",
+    "conv_id": "M06",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Next Monday evening — can I join the neighbourhood dinner? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "conflicts"
+        ],
+        [
+          "clinic",
+          "shift"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M06-p27-ctrl",
+    "twin_of": "M06-p27",
+    "mode": "no_history",
+    "conv_id": "M06",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Thinking of hosting a quiet lunch at home next Saturday afternoon — does that work with my week? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "works"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M06-p29-ctrl",
+    "twin_of": "M06-p29",
+    "mode": "no_history",
+    "conv_id": "M06",
+    "family": "F6",
+    "subtype": "conditional_forecast",
+    "question": "I'm about to skip the Sunday meal prep again. Going by the previous times, where do I end up and what do I order?",
+    "gold": {
+      "contains_any": [
+        "Georgian",
+        "walnut chicken"
+      ]
+    },
+    "scoring": "contains",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M07-p26-ctrl",
+    "twin_of": "M07-p26",
+    "mode": "no_history",
+    "conv_id": "M07",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Next Wednesday evening — can I host the wine-tasting evening? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "conflicts"
+        ],
+        [
+          "band",
+          "rehears"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M07-p27-ctrl",
+    "twin_of": "M07-p27",
+    "mode": "no_history",
+    "conv_id": "M07",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Thinking of hosting a quiet lunch at home next Saturday afternoon — does that work with my week? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "works"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M07-p29-ctrl",
+    "twin_of": "M07-p29",
+    "mode": "no_history",
+    "conv_id": "M07",
+    "family": "F6",
+    "subtype": "conditional_forecast",
+    "question": "We're shipping this Friday again. Based on how the past ones went, what exactly should I expect by Monday noon?",
+    "gold": {
+      "contains_any": [
+        "three correction",
+        "Priya"
+      ]
+    },
+    "scoring": "contains",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M08-p26-ctrl",
+    "twin_of": "M08-p26",
+    "mode": "no_history",
+    "conv_id": "M08",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Next Thursday evening — can I take the evening pottery class? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "conflicts"
+        ],
+        [
+          "football",
+          "coach"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M08-p27-ctrl",
+    "twin_of": "M08-p27",
+    "mode": "no_history",
+    "conv_id": "M08",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Thinking of hosting a quiet lunch at home next Saturday afternoon — does that work with my week? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "works"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M08-p29-ctrl",
+    "twin_of": "M08-p29",
+    "mode": "no_history",
+    "conv_id": "M08",
+    "family": "F6",
+    "subtype": "conditional_forecast",
+    "question": "I'm about to skip the Sunday meal prep again. Going by the previous times, where do I end up and what do I order?",
+    "gold": {
+      "contains_any": [
+        "Georgian",
+        "walnut chicken"
+      ]
+    },
+    "scoring": "contains",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M09-p26-ctrl",
+    "twin_of": "M09-p26",
+    "mode": "no_history",
+    "conv_id": "M09",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Next Thursday evening — can I take the evening pottery class? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "conflicts"
+        ],
+        [
+          "football",
+          "practice"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M09-p27-ctrl",
+    "twin_of": "M09-p27",
+    "mode": "no_history",
+    "conv_id": "M09",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Thinking of hosting a quiet lunch at home next Saturday afternoon — does that work with my week? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "works"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M09-p29-ctrl",
+    "twin_of": "M09-p29",
+    "mode": "no_history",
+    "conv_id": "M09",
+    "family": "F6",
+    "subtype": "conditional_forecast",
+    "question": "We're shipping this Friday again. Based on how the past ones went, what exactly should I expect by Monday noon?",
+    "gold": {
+      "contains_any": [
+        "three correction",
+        "Priya"
+      ]
+    },
+    "scoring": "contains",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M10-p26-ctrl",
+    "twin_of": "M10-p26",
+    "mode": "no_history",
+    "conv_id": "M10",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Next Monday evening — can I join the neighbourhood dinner? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "conflicts"
+        ],
+        [
+          "clinic",
+          "shift"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M10-p27-ctrl",
+    "twin_of": "M10-p27",
+    "mode": "no_history",
+    "conv_id": "M10",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Thinking of hosting a quiet lunch at home next Saturday afternoon — does that work with my week? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "works"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M10-p29-ctrl",
+    "twin_of": "M10-p29",
+    "mode": "no_history",
+    "conv_id": "M10",
+    "family": "F6",
+    "subtype": "conditional_forecast",
+    "question": "We're shipping this Friday again. Based on how the past ones went, what exactly should I expect by Monday noon?",
+    "gold": {
+      "contains_any": [
+        "three correction",
+        "Priya"
+      ]
+    },
+    "scoring": "contains",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M11-p26-ctrl",
+    "twin_of": "M11-p26",
+    "mode": "no_history",
+    "conv_id": "M11",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Next Thursday evening — can I take the evening pottery class? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "conflicts"
+        ],
+        [
+          "football",
+          "practice"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M11-p27-ctrl",
+    "twin_of": "M11-p27",
+    "mode": "no_history",
+    "conv_id": "M11",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Thinking of hosting a quiet lunch at home next Saturday afternoon — does that work with my week? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "works"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M11-p29-ctrl",
+    "twin_of": "M11-p29",
+    "mode": "no_history",
+    "conv_id": "M11",
+    "family": "F6",
+    "subtype": "conditional_forecast",
+    "question": "We're shipping this Friday again. Based on how the past ones went, what exactly should I expect by Monday noon?",
+    "gold": {
+      "contains_any": [
+        "three correction",
+        "Priya"
+      ]
+    },
+    "scoring": "contains",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M12-p26-ctrl",
+    "twin_of": "M12-p26",
+    "mode": "no_history",
+    "conv_id": "M12",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Next Friday evening — can I sign up for the evening tasting course? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "conflicts"
+        ],
+        [
+          "grandmother",
+          "family dinner"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M12-p27-ctrl",
+    "twin_of": "M12-p27",
+    "mode": "no_history",
+    "conv_id": "M12",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Thinking of hosting a quiet lunch at home next Saturday afternoon — does that work with my week? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "works"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M12-p29-ctrl",
+    "twin_of": "M12-p29",
+    "mode": "no_history",
+    "conv_id": "M12",
+    "family": "F6",
+    "subtype": "conditional_forecast",
+    "question": "We're shipping this Friday again. Based on how the past ones went, what exactly should I expect by Monday noon?",
+    "gold": {
+      "contains_any": [
+        "three correction",
+        "Priya"
+      ]
+    },
+    "scoring": "contains",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M13-p26-ctrl",
+    "twin_of": "M13-p26",
+    "mode": "no_history",
+    "conv_id": "M13",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Next Tuesday evening — can I host the book club at my flat? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "conflicts"
+        ],
+        [
+          "mum",
+          "mother",
+          "sacrosanct"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M13-p27-ctrl",
+    "twin_of": "M13-p27",
+    "mode": "no_history",
+    "conv_id": "M13",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Thinking of hosting a quiet lunch at home next Saturday afternoon — does that work with my week? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "works"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M13-p29-ctrl",
+    "twin_of": "M13-p29",
+    "mode": "no_history",
+    "conv_id": "M13",
+    "family": "F6",
+    "subtype": "conditional_forecast",
+    "question": "We're shipping this Friday again. Based on how the past ones went, what exactly should I expect by Monday noon?",
+    "gold": {
+      "contains_any": [
+        "three correction",
+        "Priya"
+      ]
+    },
+    "scoring": "contains",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M14-p26-ctrl",
+    "twin_of": "M14-p26",
+    "mode": "no_history",
+    "conv_id": "M14",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Next Friday evening — can I sign up for the evening tasting course? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "conflicts"
+        ],
+        [
+          "grandmother",
+          "family dinner"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M14-p27-ctrl",
+    "twin_of": "M14-p27",
+    "mode": "no_history",
+    "conv_id": "M14",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Thinking of hosting a quiet lunch at home next Saturday afternoon — does that work with my week? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "works"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M14-p29-ctrl",
+    "twin_of": "M14-p29",
+    "mode": "no_history",
+    "conv_id": "M14",
+    "family": "F6",
+    "subtype": "conditional_forecast",
+    "question": "The printer just jammed again. Based on the previous times, what else should I expect to happen?",
+    "gold": {
+      "contains_any": [
+        "wifi password",
+        "router"
+      ]
+    },
+    "scoring": "contains",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M15-p26-ctrl",
+    "twin_of": "M15-p26",
+    "mode": "no_history",
+    "conv_id": "M15",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Next Thursday evening — can I take the evening pottery class? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "conflicts"
+        ],
+        [
+          "football",
+          "practice"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M15-p27-ctrl",
+    "twin_of": "M15-p27",
+    "mode": "no_history",
+    "conv_id": "M15",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Thinking of hosting a quiet lunch at home next Saturday afternoon — does that work with my week? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "works"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M15-p29-ctrl",
+    "twin_of": "M15-p29",
+    "mode": "no_history",
+    "conv_id": "M15",
+    "family": "F6",
+    "subtype": "conditional_forecast",
+    "question": "The printer just jammed again. Based on the previous times, what else should I expect to happen?",
+    "gold": {
+      "contains_any": [
+        "wifi password",
+        "router"
+      ]
+    },
+    "scoring": "contains",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M16-p26-ctrl",
+    "twin_of": "M16-p26",
+    "mode": "no_history",
+    "conv_id": "M16",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Next Friday evening — can I sign up for the evening tasting course? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "conflicts"
+        ],
+        [
+          "grandmother",
+          "family dinner"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M16-p27-ctrl",
+    "twin_of": "M16-p27",
+    "mode": "no_history",
+    "conv_id": "M16",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Thinking of hosting a quiet lunch at home next Saturday afternoon — does that work with my week? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "works"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "M16-p29-ctrl",
+    "twin_of": "M16-p29",
+    "mode": "no_history",
+    "conv_id": "M16",
+    "family": "F6",
+    "subtype": "conditional_forecast",
+    "question": "We're shipping this Friday again. Based on how the past ones went, what exactly should I expect by Monday noon?",
+    "gold": {
+      "contains_any": [
+        "three correction",
+        "Priya"
+      ]
+    },
+    "scoring": "contains",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "L01-p27-ctrl",
+    "twin_of": "L01-p27",
+    "mode": "no_history",
+    "conv_id": "L01",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Thinking of hosting a quiet lunch at home next Saturday afternoon — does that work with my week? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "works"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "L01-p30-ctrl",
+    "twin_of": "L01-p30",
+    "mode": "no_history",
+    "conv_id": "L01",
+    "family": "F6",
+    "subtype": "conditional_forecast",
+    "question": "We're shipping this Friday again. Based on how the past ones went, what exactly should I expect by Monday noon?",
+    "gold": {
+      "contains_any": [
+        "three correction",
+        "Priya"
+      ]
+    },
+    "scoring": "contains",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "L02-p27-ctrl",
+    "twin_of": "L02-p27",
+    "mode": "no_history",
+    "conv_id": "L02",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Next Friday evening — can I sign up for the evening tasting course? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "conflicts"
+        ],
+        [
+          "grandmother",
+          "family dinner"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "L02-p30-ctrl",
+    "twin_of": "L02-p30",
+    "mode": "no_history",
+    "conv_id": "L02",
+    "family": "F6",
+    "subtype": "conditional_forecast",
+    "question": "The printer just jammed again. Based on the previous times, what else should I expect to happen?",
+    "gold": {
+      "contains_any": [
+        "wifi password",
+        "router"
+      ]
+    },
+    "scoring": "contains",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "L03-p27-ctrl",
+    "twin_of": "L03-p27",
+    "mode": "no_history",
+    "conv_id": "L03",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Thinking of hosting a quiet lunch at home next Saturday afternoon — does that work with my week? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "works"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "L03-p30-ctrl",
+    "twin_of": "L03-p30",
+    "mode": "no_history",
+    "conv_id": "L03",
+    "family": "F6",
+    "subtype": "conditional_forecast",
+    "question": "I'm about to skip the Sunday meal prep again. Going by the previous times, where do I end up and what do I order?",
+    "gold": {
+      "contains_any": [
+        "Georgian",
+        "walnut chicken"
+      ]
+    },
+    "scoring": "contains",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "L04-p27-ctrl",
+    "twin_of": "L04-p27",
+    "mode": "no_history",
+    "conv_id": "L04",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Next Thursday evening — can I take the evening pottery class? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "conflicts"
+        ],
+        [
+          "football",
+          "coach"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "L04-p30-ctrl",
+    "twin_of": "L04-p30",
+    "mode": "no_history",
+    "conv_id": "L04",
+    "family": "F6",
+    "subtype": "conditional_forecast",
+    "question": "We're shipping this Friday again. Based on how the past ones went, what exactly should I expect by Monday noon?",
+    "gold": {
+      "contains_any": [
+        "three correction",
+        "Priya"
+      ]
+    },
+    "scoring": "contains",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "L05-p27-ctrl",
+    "twin_of": "L05-p27",
+    "mode": "no_history",
+    "conv_id": "L05",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Thinking of hosting a quiet lunch at home next Saturday afternoon — does that work with my week? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "works"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "L05-p30-ctrl",
+    "twin_of": "L05-p30",
+    "mode": "no_history",
+    "conv_id": "L05",
+    "family": "F6",
+    "subtype": "conditional_forecast",
+    "question": "We're shipping this Friday again. Based on how the past ones went, what exactly should I expect by Monday noon?",
+    "gold": {
+      "contains_any": [
+        "three correction",
+        "Priya"
+      ]
+    },
+    "scoring": "contains",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "L06-p27-ctrl",
+    "twin_of": "L06-p27",
+    "mode": "no_history",
+    "conv_id": "L06",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Next Tuesday evening — can I host the book club at my flat? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "conflicts"
+        ],
+        [
+          "mother"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "L06-p30-ctrl",
+    "twin_of": "L06-p30",
+    "mode": "no_history",
+    "conv_id": "L06",
+    "family": "F6",
+    "subtype": "conditional_forecast",
+    "question": "I'm about to skip the Sunday meal prep again. Going by the previous times, where do I end up and what do I order?",
+    "gold": {
+      "contains_any": [
+        "Georgian",
+        "walnut chicken"
+      ]
+    },
+    "scoring": "contains",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "L07-p27-ctrl",
+    "twin_of": "L07-p27",
+    "mode": "no_history",
+    "conv_id": "L07",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Thinking of hosting a quiet lunch at home next Saturday afternoon — does that work with my week? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "works"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "L07-p30-ctrl",
+    "twin_of": "L07-p30",
+    "mode": "no_history",
+    "conv_id": "L07",
+    "family": "F6",
+    "subtype": "conditional_forecast",
+    "question": "We're shipping this Friday again. Based on how the past ones went, what exactly should I expect by Monday noon?",
+    "gold": {
+      "contains_any": [
+        "three correction",
+        "Priya"
+      ]
+    },
+    "scoring": "contains",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "L08-p27-ctrl",
+    "twin_of": "L08-p27",
+    "mode": "no_history",
+    "conv_id": "L08",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Next Tuesday evening — can I host the book club at my flat? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "conflicts"
+        ],
+        [
+          "mother"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "L08-p30-ctrl",
+    "twin_of": "L08-p30",
+    "mode": "no_history",
+    "conv_id": "L08",
+    "family": "F6",
+    "subtype": "conditional_forecast",
+    "question": "I'm about to skip the Sunday meal prep again. Going by the previous times, where do I end up and what do I order?",
+    "gold": {
+      "contains_any": [
+        "Georgian",
+        "walnut chicken"
+      ]
+    },
+    "scoring": "contains",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "L09-p27-ctrl",
+    "twin_of": "L09-p27",
+    "mode": "no_history",
+    "conv_id": "L09",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Thinking of hosting a quiet lunch at home next Saturday afternoon — does that work with my week? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "works"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "L09-p30-ctrl",
+    "twin_of": "L09-p30",
+    "mode": "no_history",
+    "conv_id": "L09",
+    "family": "F6",
+    "subtype": "conditional_forecast",
+    "question": "The printer just jammed again. Based on the previous times, what else should I expect to happen?",
+    "gold": {
+      "contains_any": [
+        "wifi password",
+        "router"
+      ]
+    },
+    "scoring": "contains",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "L10-p27-ctrl",
+    "twin_of": "L10-p27",
+    "mode": "no_history",
+    "conv_id": "L10",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Next Thursday evening — can I take the evening pottery class? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "conflicts"
+        ],
+        [
+          "football",
+          "coach"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "L10-p30-ctrl",
+    "twin_of": "L10-p30",
+    "mode": "no_history",
+    "conv_id": "L10",
+    "family": "F6",
+    "subtype": "conditional_forecast",
+    "question": "The printer just jammed again. Based on the previous times, what else should I expect to happen?",
+    "gold": {
+      "contains_any": [
+        "wifi password",
+        "router"
+      ]
+    },
+    "scoring": "contains",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "L11-p27-ctrl",
+    "twin_of": "L11-p27",
+    "mode": "no_history",
+    "conv_id": "L11",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Thinking of hosting a quiet lunch at home next Saturday afternoon — does that work with my week? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "works"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "L11-p30-ctrl",
+    "twin_of": "L11-p30",
+    "mode": "no_history",
+    "conv_id": "L11",
+    "family": "F6",
+    "subtype": "conditional_forecast",
+    "question": "I'm about to skip the Sunday meal prep again. Going by the previous times, where do I end up and what do I order?",
+    "gold": {
+      "contains_any": [
+        "Georgian",
+        "walnut chicken"
+      ]
+    },
+    "scoring": "contains",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "L12-p27-ctrl",
+    "twin_of": "L12-p27",
+    "mode": "no_history",
+    "conv_id": "L12",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Next Friday evening — can I sign up for the evening tasting course? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "conflicts"
+        ],
+        [
+          "grandmother",
+          "family dinner"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "L12-p30-ctrl",
+    "twin_of": "L12-p30",
+    "mode": "no_history",
+    "conv_id": "L12",
+    "family": "F6",
+    "subtype": "conditional_forecast",
+    "question": "The printer just jammed again. Based on the previous times, what else should I expect to happen?",
+    "gold": {
+      "contains_any": [
+        "wifi password",
+        "router"
+      ]
+    },
+    "scoring": "contains",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "L13-p27-ctrl",
+    "twin_of": "L13-p27",
+    "mode": "no_history",
+    "conv_id": "L13",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Thinking of hosting a quiet lunch at home next Saturday afternoon — does that work with my week? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "works"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "L13-p30-ctrl",
+    "twin_of": "L13-p30",
+    "mode": "no_history",
+    "conv_id": "L13",
+    "family": "F6",
+    "subtype": "conditional_forecast",
+    "question": "I'm about to skip the Sunday meal prep again. Going by the previous times, where do I end up and what do I order?",
+    "gold": {
+      "contains_any": [
+        "Georgian",
+        "walnut chicken"
+      ]
+    },
+    "scoring": "contains",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "L14-p27-ctrl",
+    "twin_of": "L14-p27",
+    "mode": "no_history",
+    "conv_id": "L14",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Next Thursday evening — can I take the evening pottery class? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "conflicts"
+        ],
+        [
+          "football",
+          "coach"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "L14-p30-ctrl",
+    "twin_of": "L14-p30",
+    "mode": "no_history",
+    "conv_id": "L14",
+    "family": "F6",
+    "subtype": "conditional_forecast",
+    "question": "We're shipping this Friday again. Based on how the past ones went, what exactly should I expect by Monday noon?",
+    "gold": {
+      "contains_any": [
+        "three correction",
+        "Priya"
+      ]
+    },
+    "scoring": "contains",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "L15-p27-ctrl",
+    "twin_of": "L15-p27",
+    "mode": "no_history",
+    "conv_id": "L15",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Thinking of hosting a quiet lunch at home next Saturday afternoon — does that work with my week? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "works"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "L15-p30-ctrl",
+    "twin_of": "L15-p30",
+    "mode": "no_history",
+    "conv_id": "L15",
+    "family": "F6",
+    "subtype": "conditional_forecast",
+    "question": "I'm about to skip the Sunday meal prep again. Going by the previous times, where do I end up and what do I order?",
+    "gold": {
+      "contains_any": [
+        "Georgian",
+        "walnut chicken"
+      ]
+    },
+    "scoring": "contains",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "L16-p27-ctrl",
+    "twin_of": "L16-p27",
+    "mode": "no_history",
+    "conv_id": "L16",
+    "family": "F6",
+    "subtype": "constraint_projection",
+    "question": "Next Tuesday evening — can I host the book club at my flat? Start your answer with exactly one word — WORKS or CONFLICTS — then name the commitment that matters, if any.",
+    "gold": {
+      "groups": [
+        [
+          "conflicts"
+        ],
+        [
+          "mother"
+        ]
+      ]
+    },
+    "scoring": "contains_all_groups",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  },
+  {
+    "probe_id": "L16-p30-ctrl",
+    "twin_of": "L16-p30",
+    "mode": "no_history",
+    "conv_id": "L16",
+    "family": "F6",
+    "subtype": "conditional_forecast",
+    "question": "I'm about to skip the Sunday meal prep again. Going by the previous times, where do I end up and what do I order?",
+    "gold": {
+      "contains_any": [
+        "Georgian",
+        "walnut chicken"
+      ]
+    },
+    "scoring": "contains",
+    "notes": "no_history control twin — run WITHOUT conversation history, once (arm-independent); C6_gain = acc(grounded) - acc(no_history)"
+  }
+]

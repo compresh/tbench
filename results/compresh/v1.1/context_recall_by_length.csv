@@ -1,0 +1,4 @@
+n_turns,raw_ctx,rag_ctx,compresh_ctx,token_saving_pct,raw_recall,rag_recall,compresh_recall
+45,1843,254,235,87.2,99.5,100.0,98.1
+210,9170,245,229,97.5,97.3,88.0,99.0
+1456,71032,303,342,99.5,91.7,86.5,99.0

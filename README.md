@@ -14,6 +14,46 @@ or loses the thread. Report and leaderboard-free results live at
 as every other arm, and we publish a pre-registered hypothesis about our newest
 system that *failed* (see [Honesty](#honesty)). Hiding that would defeat the point.
 
+## v2.0 — the first full X-ray (July 2026)
+
+**Report: [tulv.ing/report-v2.html](https://tulv.ing/report-v2.html).**
+1,264 probes across seven criteria (C1 binding · C2 single-exposure · C3
+instance discrimination · C4 temporal · C5 source monitoring · C6 future
+projection · C7 consolidation), planted in ~1.17M-token multi-session
+haystacks with confusable twins, OOD phrasings and decoy sentences.
+Headlines: similarity retrieval (our product included) has a structural
+C6 blind spot (0.52 vs raw 0.94, replicated across three sets and two
+seeds); the cause is selection, not compression; with evidence delivered,
+model accuracy is >=0.99 — and a Phase-0 dual-channel candidate recovers
+the blind spot to 0.88 with zero regression, on ~3% of raw's tokens.
+Two pre-registered expectations failed and are published (C7 at ceiling;
+un-stamped oracle evidence loses temporal questions).
+
+**Data:** [`data/v2.0-public/`](data/v2.0-public/) — frozen 2026-07-04,
+generator 0.7.0, seed 404: `conversations.json`, `probes.json` (1,264),
+`controls.json` (80 no-history twins), `MANIFEST.json` (criteria map,
+exposure histogram, plants). A private held-out split exists; its seed is
+stored nowhere digital. Anchored rebuilds keep versions comparable
+(v2.0 reproduced the v1.1 composite exactly: 0.988 = 0.988).
+
+**Reproduce (model arms):**
+```bash
+cd runner/v2
+python3 run_tbench.py --data ../../data/v2.0-public --arm t0_raw \
+    --provider openai --run-id myrun          # raw upper line
+python3 run_tbench.py --data ../../data/v2.0-public --arm t1_oracle \
+    --provider openai --run-id myrun          # evidence-only floor
+python3 run_tbench.py --data ../../data/v2.0-public --controls \
+    --provider openai --run-id myrun          # no-history twins
+python3 xray_report.py --run-id myrun --data ../../data/v2.0-public
+```
+Scoring is deterministic (`score.py --selftest`). The Compresh engine
+arms (tulbase / TUL 2.0 / Phase-0) depend on our bench-local engine and
+are our published rows; to X-ray **your** system, wrap it as a context
+builder per `runner/byo_template.py` and run the same probes. Every
+result row records `evidence_in_ctx`, so you get the transport-vs-model
+loss split for free.
+
 ## TL;DR
 
 The value of a context architecture is **inversely proportional to the strength
